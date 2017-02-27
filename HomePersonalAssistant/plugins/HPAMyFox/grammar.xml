@@ -1,0 +1,112 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root= "HPAMyFox" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="HPAMyFox" scope="public">
+    <example>allume la petite lampe</example>
+    <example>éteind la petite lampe</example>
+    <example>active l'alarme</example>
+
+    <tag>out.lumiere=""; out.alarme=""; out.sleep="";out.temperature="";out.magicmirror="";</tag>
+    <one-of>
+      <item>
+        <ruleref uri ="#Lumieres" type="application/srgs+xml"/>
+        <tag>out.lumiere=rules.latest();</tag>
+        <ruleref uri ="#Alarme" type="application/srgs+xml"/>
+        <tag>out.alarme=rules.latest();</tag>
+        <!--<ruleref uri ="#Sleep" type="application/srgs+xml"/>
+        <tag>out.sleep=rules.latest();</tag>-->
+        <ruleref uri ="#Temperature" type="application/srgs+xml"/>
+        <tag>out.temperature=rules.latest();</tag>
+        <ruleref uri ="#MagicMirror" type="application/srgs+xml"/>
+        <tag>out.magicmirror=rules.latest();</tag>
+      </item>
+    </one-of>
+  </rule>
+
+  <!--<rule id="Sleep">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          bonne nuit <tag>out = "48379|48380"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>-->
+  
+  <rule id="Lumieres">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          allume la petite lampe <tag>out = 48377; </tag>
+        </item>
+        <item>
+          éteind la petite lampe <tag>out = 48379; </tag>
+        </item>
+        <item>
+          allume le salon <tag>out = 48378; </tag>
+        </item>
+        <item>
+          éteind le salon <tag>out = 48380; </tag>
+        </item>
+        <item>
+          allume la lumière du salon <tag>out = 48378; </tag>
+        </item>
+        <item>
+          éteind la lumière du salon <tag>out = 48380; </tag>
+        </item>
+        <item>
+          mode ciné <tag>out = "48379|48380"; </tag>
+        </item>
+        <item>
+          mode télé <tag>out = "48377|48380"; </tag>
+        </item>
+        <item>
+          mode diner <tag>out = "48377|48380"; </tag>
+        </item>
+        <item>
+          mode déjeuner <tag>out = "48377|48380"; </tag>
+        </item>
+        <item>
+          mode petit déj <tag>out = "48377|48380"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+  <rule id="Alarme">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          active l'alarme <tag>out = "armed"; </tag>
+        </item>
+        <item>
+          active totalement l'alarme <tag>out = "armed"; </tag>
+        </item>
+        <item>
+          active partiellement l'alarme <tag>out = "partial"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+  <rule id="Temperature">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          quelle est la température de la maison <tag>out = "temperature maison"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+  <rule id="MagicMirror">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          allume le miroir <tag>out = "mirroron.php"; </tag>
+        </item>
+        <item>
+          éteind le miroir <tag>out ="mirroroff.php"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+</grammar>

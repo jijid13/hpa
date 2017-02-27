@@ -1,0 +1,27 @@
+﻿<grammar version="1.0" xml:lang="fr-FR" mode="voice" root= "HPA" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="HPA" scope="public">
+    <example>oui</example>
+    <example>non</example>
+
+    <tag>out.start=""</tag>
+    <one-of>
+      <item>
+        jarvis <tag>out = "jarvis"; </tag>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="Reponse">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          oui <tag>out = "oui"; </tag>
+        </item>
+        <item>
+          non <tag>out = "non"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+</grammar>

@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C6565E7-F665-47BD-A189-02E49B294F69}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HomePersonalAssistant</RootNamespace>
+    <AssemblyName>HomePersonalAssistant</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;KINECT TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;KINECT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HomePersonalAssistant.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Micro|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Micro\</OutputPath>
+    <DefineConstants>TRACE;MICRO TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KINECT|AnyCPU'">
+    <OutputPath>bin\KINECT\</OutputPath>
+    <DefineConstants>KINECT TEST</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Kinect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Speech\11.0.0.0__31bf3856ad364e35\Microsoft.Speech.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Resources\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Speech" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KinectAudioStream.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SpeechRecognition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="node_modules\.bin\mime" />
+    <None Include="node_modules\.bin\mime.cmd" />
+    <None Include="node_modules\accepts\HISTORY.md" />
+    <None Include="node_modules\accepts\LICENSE" />
+    <None Include="node_modules\accepts\package.json" />
+    <None Include="node_modules\accepts\README.md" />
+    <None Include="node_modules\array-flatten\LICENSE" />
+    <None Include="node_modules\array-flatten\package.json" />
+    <None Include="node_modules\array-flatten\README.md" />
+    <None Include="node_modules\content-disposition\HISTORY.md" />
+    <None Include="node_modules\content-disposition\LICENSE" />
+    <None Include="node_modules\content-disposition\package.json" />
+    <None Include="node_modules\content-disposition\README.md" />
+    <None Include="node_modules\content-type\HISTORY.md" />
+    <None Include="node_modules\content-type\LICENSE" />
+    <None Include="node_modules\content-type\package.json" />
+    <None Include="node_modules\content-type\README.md" />
+    <None Include="node_modules\cookie-signature\.npmignore" />
+    <None Include="node_modules\cookie-signature\History.md" />
+    <None Include="node_modules\cookie-signature\package.json" />
+    <None Include="node_modules\cookie-signature\Readme.md" />
+    <None Include="node_modules\cookie\HISTORY.md" />
+    <None Include="node_modules\cookie\LICENSE" />
+    <None Include="node_modules\cookie\package.json" />
+    <None Include="node_modules\cookie\README.md" />
+    <None Include="node_modules\debug\.jshintrc" />
+    <None Include="node_modules\debug\.npmignore" />
+    <None Include="node_modules\debug\bower.json" />
+    <None Include="node_modules\debug\component.json" />
+    <None Include="node_modules\debug\History.md" />
+    <None Include="node_modules\debug\Makefile" />
+    <None Include="node_modules\debug\package.json" />
+    <None Include="node_modules\debug\Readme.md" />
+    <None Include="node_modules\depd\History.md" />
+    <None Include="node_modules\depd\LICENSE" />
+    <None Include="node_modules\depd\package.json" />
+    <None Include="node_modules\depd\Readme.md" />
+    <None Include="node_modules\destroy\LICENSE" />
+    <None Include="node_modules\destroy\package.json" />
+    <None Include="node_modules\destroy\README.md" />
+    <None Include="node_modules\ee-first\LICENSE" />
+    <None Include="node_modules\ee-first\package.json" />
+    <None Include="node_modules\ee-first\README.md" />
+    <None Include="node_modules\encodeurl\HISTORY.md" />
+    <None Include="node_modules\encodeurl\LICENSE" />
+    <None Include="node_modules\encodeurl\package.json" />
+    <None Include="node_modules\encodeurl\README.md" />
+    <None Include="node_modules\escape-html\LICENSE" />
+    <None Include="node_modules\escape-html\package.json" />
+    <None Include="node_modules\escape-html\Readme.md" />
+    <None Include="node_modules\etag\HISTORY.md" />
+    <None Include="node_modules\etag\LICENSE" />
+    <None Include="node_modules\etag\package.json" />
+    <None Include="node_modules\etag\README.md" />
+    <None Include="node_modules\express\History.md" />
+    <None Include="node_modules\express\LICENSE" />
+    <None Include="node_modules\express\package.json" />
+    <None Include="node_modules\express\Readme.md" />
+    <None Include="node_modules\finalhandler\HISTORY.md" />
+    <None Include="node_modules\finalhandler\LICENSE" />
+    <None Include="node_modules\finalhandler\package.json" />
+    <None Include="node_modules\finalhandler\README.md" />
+    <None Include="node_modules\forwarded\HISTORY.md" />
+    <None Include="node_modules\forwarded\LICENSE" />
+    <None Include="node_modules\forwarded\package.json" />
+    <None Include="node_modules\forwarded\README.md" />
+    <None Include="node_modules\fresh\HISTORY.md" />
+    <None Include="node_modules\fresh\LICENSE" />
+    <None Include="node_modules\fresh\package.json" />
+    <None Include="node_modules\fresh\README.md" />
+    <None Include="node_modules\http-errors\HISTORY.md" />
+    <None Include="node_modules\http-errors\LICENSE" />
+    <None Include="node_modules\http-errors\package.json" />
+    <None Include="node_modules\http-errors\README.md" />
+    <None Include="node_modules\inherits\LICENSE" />
+    <None Include="node_modules\inherits\package.json" />
+    <None Include="node_modules\inherits\README.md" />
+    <None Include="node_modules\ipaddr.js\.npmignore" />
+    <None Include="node_modules\ipaddr.js\.travis.yml" />
+    <None Include="node_modules\ipaddr.js\bower.json" />
+    <None Include="node_modules\ipaddr.js\Cakefile" />
+    <None Include="node_modules\ipaddr.js\LICENSE" />
+    <None Include="node_modules\ipaddr.js\package.json" />
+    <None Include="node_modules\ipaddr.js\README.md" />
+    <None Include="node_modules\ipaddr.js\src\ipaddr.coffee" />
+    <None Include="node_modules\ipaddr.js\test\ipaddr.test.coffee" />
+    <None Include="node_modules\jquery\bower.json" />
+    <None Include="node_modules\jquery\dist\jquery.min.map" />
+    <None Include="node_modules\jquery\dist\jquery.slim.min.map" />
+    <None Include="node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
+    <None Include="node_modules\jquery\package.json" />
+    <None Include="node_modules\jquery\README.md" />
+    <None Include="node_modules\jquery\src\.eslintrc.json" />
+    <None Include="node_modules\media-typer\HISTORY.md" />
+    <None Include="node_modules\media-typer\LICENSE" />
+    <None Include="node_modules\media-typer\package.json" />
+    <None Include="node_modules\media-typer\README.md" />
+    <None Include="node_modules\merge-descriptors\HISTORY.md" />
+    <None Include="node_modules\merge-descriptors\LICENSE" />
+    <None Include="node_modules\merge-descriptors\package.json" />
+    <None Include="node_modules\merge-descriptors\README.md" />
+    <None Include="node_modules\methods\HISTORY.md" />
+    <None Include="node_modules\methods\LICENSE" />
+    <None Include="node_modules\methods\package.json" />
+    <None Include="node_modules\methods\README.md" />
+    <None Include="node_modules\mime-db\db.json" />
+    <None Include="node_modules\mime-db\HISTORY.md" />
+    <None Include="node_modules\mime-db\LICENSE" />
+    <None Include="node_modules\mime-db\package.json" />
+    <None Include="node_modules\mime-db\README.md" />
+    <None Include="node_modules\mime-types\HISTORY.md" />
+    <None Include="node_modules\mime-types\LICENSE" />
+    <None Include="node_modules\mime-types\package.json" />
+    <None Include="node_modules\mime-types\README.md" />
+    <None Include="node_modules\mime\.npmignore" />
+    <None Include="node_modules\mime\LICENSE" />
+    <None Include="node_modules\mime\package.json" />
+    <None Include="node_modules\mime\README.md" />
+    <None Include="node_modules\mime\types.json" />
+    <None Include="node_modules\ms\.npmignore" />
+    <None Include="node_modules\ms\History.md" />
+    <None Include="node_modules\ms\LICENSE" />
+    <None Include="node_modules\ms\package.json" />
+    <None Include="node_modules\ms\README.md" />
+    <None Include="node_modules\negotiator\HISTORY.md" />
+    <None Include="node_modules\negotiator\LICENSE" />
+    <None Include="node_modules\negotiator\package.json" />
+    <None Include="node_modules\negotiator\README.md" />
+    <None Include="node_modules\on-finished\HISTORY.md" />
+    <None Include="node_modules\on-finished\LICENSE" />
+    <None Include="node_modules\on-finished\package.json" />
+    <None Include="node_modules\on-finished\README.md" />
+    <None Include="node_modules\parseurl\HISTORY.md" />
+    <None Include="node_modules\parseurl\LICENSE" />
+    <None Include="node_modules\parseurl\package.json" />
+    <None Include="node_modules\parseurl\README.md" />
+    <None Include="node_modules\path-to-regexp\History.md" />
+    <None Include="node_modules\path-to-regexp\LICENSE" />
+    <None Include="node_modules\path-to-regexp\package.json" />
+    <None Include="node_modules\path-to-regexp\Readme.md" />
+    <None Include="node_modules\proxy-addr\HISTORY.md" />
+    <None Include="node_modules\proxy-addr\LICENSE" />
+    <None Include="node_modules\proxy-addr\package.json" />
+    <None Include="node_modules\proxy-addr\README.md" />
+    <None Include="node_modules\qs\.eslintignore" />
+    <None Include="node_modules\qs\.eslintrc" />
+    <None Include="node_modules\qs\.jscs.json" />
+    <None Include="node_modules\qs\CHANGELOG.md" />
+    <None Include="node_modules\qs\CONTRIBUTING.md" />
+    <None Include="node_modules\qs\LICENSE" />
+    <None Include="node_modules\qs\package.json" />
+    <None Include="node_modules\q\CONTRIBUTING.md" />
+    <None Include="node_modules\q\LICENSE" />
+    <None Include="node_modules\q\package.json" />
+    <None Include="node_modules\q\README.md" />
+    <None Include="node_modules\range-parser\HISTORY.md" />
+    <None Include="node_modules\range-parser\LICENSE" />
+    <None Include="node_modules\range-parser\package.json" />
+    <None Include="node_modules\range-parser\README.md" />
+    <None Include="node_modules\requestify\.jshintrc" />
+    <None Include="node_modules\requestify\.npmignore" />
+    <None Include="node_modules\requestify\.travis.yml" />
+    <None Include="node_modules\requestify\package.json" />
+    <None Include="node_modules\requestify\README.md" />
+    <None Include="node_modules\require-all\Changes.md" />
+    <None Include="node_modules\require-all\LICENSE" />
+    <None Include="node_modules\require-all\package.json" />
+    <None Include="node_modules\require-all\Readme.md" />
+    <None Include="node_modules\send\HISTORY.md" />
+    <None Include="node_modules\send\LICENSE" />
+    <None Include="node_modules\send\node_modules\ms\LICENSE.md" />
+    <None Include="node_modules\send\node_modules\ms\package.json" />
+    <None Include="node_modules\send\node_modules\ms\README.md" />
+    <None Include="node_modules\send\package.json" />
+    <None Include="node_modules\send\README.md" />
+    <None Include="node_modules\serve-static\HISTORY.md" />
+    <None Include="node_modules\serve-static\LICENSE" />
+    <None Include="node_modules\serve-static\package.json" />
+    <None Include="node_modules\serve-static\README.md" />
+    <None Include="node_modules\setprototypeof\LICENSE" />
+    <None Include="node_modules\setprototypeof\package.json" />
+    <None Include="node_modules\setprototypeof\README.md" />
+    <None Include="node_modules\statuses\codes.json" />
+    <None Include="node_modules\statuses\HISTORY.md" />
+    <None Include="node_modules\statuses\LICENSE" />
+    <None Include="node_modules\statuses\package.json" />
+    <None Include="node_modules\statuses\README.md" />
+    <None Include="node_modules\type-is\HISTORY.md" />
+    <None Include="node_modules\type-is\LICENSE" />
+    <None Include="node_modules\type-is\package.json" />
+    <None Include="node_modules\type-is\README.md" />
+    <None Include="node_modules\underscore\LICENSE" />
+    <None Include="node_modules\underscore\package.json" />
+    <None Include="node_modules\underscore\README.md" />
+    <None Include="node_modules\underscore\underscore-min.map" />
+    <None Include="node_modules\unpipe\HISTORY.md" />
+    <None Include="node_modules\unpipe\LICENSE" />
+    <None Include="node_modules\unpipe\package.json" />
+    <None Include="node_modules\unpipe\README.md" />
+    <None Include="node_modules\utils-merge\.travis.yml" />
+    <None Include="node_modules\utils-merge\LICENSE" />
+    <None Include="node_modules\utils-merge\package.json" />
+    <None Include="node_modules\utils-merge\README.md" />
+    <None Include="node_modules\vary\HISTORY.md" />
+    <None Include="node_modules\vary\LICENSE" />
+    <None Include="node_modules\vary\package.json" />
+    <None Include="node_modules\vary\README.md" />
+    <None Include="plugins\HPAMyFox\properties.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="plugins\HPAYahooWeather\properties.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="properties.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HPA.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="node_modules\accepts\index.js" />
+    <Content Include="node_modules\array-flatten\array-flatten.js" />
+    <Content Include="node_modules\content-disposition\index.js" />
+    <Content Include="node_modules\content-type\index.js" />
+    <Content Include="node_modules\cookie-signature\index.js" />
+    <Content Include="node_modules\cookie\index.js" />
+    <Content Include="node_modules\debug\browser.js" />
+    <Content Include="node_modules\debug\debug.js" />
+    <Content Include="node_modules\debug\node.js" />
+    <Content Include="node_modules\depd\index.js" />
+    <Content Include="node_modules\depd\lib\browser\index.js" />
+    <Content Include="node_modules\depd\lib\compat\buffer-concat.js" />
+    <Content Include="node_modules\depd\lib\compat\callsite-tostring.js" />
+    <Content Include="node_modules\depd\lib\compat\event-listener-count.js" />
+    <Content Include="node_modules\depd\lib\compat\index.js" />
+    <Content Include="node_modules\destroy\index.js" />
+    <Content Include="node_modules\ee-first\index.js" />
+    <Content Include="node_modules\encodeurl\index.js" />
+    <Content Include="node_modules\escape-html\index.js" />
+    <Content Include="node_modules\etag\index.js" />
+    <Content Include="node_modules\express\index.js" />
+    <Content Include="node_modules\express\lib\application.js" />
+    <Content Include="node_modules\express\lib\express.js" />
+    <Content Include="node_modules\express\lib\middleware\init.js" />
+    <Content Include="node_modules\express\lib\middleware\query.js" />
+    <Content Include="node_modules\express\lib\request.js" />
+    <Content Include="node_modules\express\lib\response.js" />
+    <Content Include="node_modules\express\lib\router\index.js" />
+    <Content Include="node_modules\express\lib\router\layer.js" />
+    <Content Include="node_modules\express\lib\router\route.js" />
+    <Content Include="node_modules\express\lib\utils.js" />
+    <Content Include="node_modules\express\lib\view.js" />
+    <Content Include="node_modules\finalhandler\index.js" />
+    <Content Include="node_modules\forwarded\index.js" />
+    <Content Include="node_modules\fresh\index.js" />
+    <Content Include="node_modules\http-errors\index.js" />
+    <Content Include="node_modules\inherits\inherits.js" />
+    <Content Include="node_modules\inherits\inherits_browser.js" />
+    <Content Include="node_modules\ipaddr.js\ipaddr.min.js" />
+    <Content Include="node_modules\ipaddr.js\lib\ipaddr.js" />
+    <Content Include="node_modules\jquery\AUTHORS.txt" />
+    <Content Include="node_modules\jquery\dist\core.js" />
+    <Content Include="node_modules\jquery\dist\jquery.js" />
+    <Content Include="node_modules\jquery\dist\jquery.min.js" />
+    <Content Include="node_modules\jquery\dist\jquery.slim.js" />
+    <Content Include="node_modules\jquery\dist\jquery.slim.min.js" />
+    <Content Include="node_modules\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="node_modules\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="node_modules\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="node_modules\jquery\LICENSE.txt" />
+    <Content Include="node_modules\jquery\src\ajax.js" />
+    <Content Include="node_modules\jquery\src\ajax\jsonp.js" />
+    <Content Include="node_modules\jquery\src\ajax\load.js" />
+    <Content Include="node_modules\jquery\src\ajax\parseXML.js" />
+    <Content Include="node_modules\jquery\src\ajax\script.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\location.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\nonce.js" />
+    <Content Include="node_modules\jquery\src\ajax\var\rquery.js" />
+    <Content Include="node_modules\jquery\src\ajax\xhr.js" />
+    <Content Include="node_modules\jquery\src\attributes.js" />
+    <Content Include="node_modules\jquery\src\attributes\attr.js" />
+    <Content Include="node_modules\jquery\src\attributes\classes.js" />
+    <Content Include="node_modules\jquery\src\attributes\prop.js" />
+    <Content Include="node_modules\jquery\src\attributes\support.js" />
+    <Content Include="node_modules\jquery\src\attributes\val.js" />
+    <Content Include="node_modules\jquery\src\callbacks.js" />
+    <Content Include="node_modules\jquery\src\core.js" />
+    <Content Include="node_modules\jquery\src\core\access.js" />
+    <Content Include="node_modules\jquery\src\core\DOMEval.js" />
+    <Content Include="node_modules\jquery\src\core\init.js" />
+    <Content Include="node_modules\jquery\src\core\parseHTML.js" />
+    <Content Include="node_modules\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="node_modules\jquery\src\core\ready.js" />
+    <Content Include="node_modules\jquery\src\core\readyException.js" />
+    <Content Include="node_modules\jquery\src\core\stripAndCollapse.js" />
+    <Content Include="node_modules\jquery\src\core\support.js" />
+    <Content Include="node_modules\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="node_modules\jquery\src\css.js" />
+    <Content Include="node_modules\jquery\src\css\addGetHookIf.js" />
+    <Content Include="node_modules\jquery\src\css\adjustCSS.js" />
+    <Content Include="node_modules\jquery\src\css\curCSS.js" />
+    <Content Include="node_modules\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="node_modules\jquery\src\css\showHide.js" />
+    <Content Include="node_modules\jquery\src\css\support.js" />
+    <Content Include="node_modules\jquery\src\css\var\cssExpand.js" />
+    <Content Include="node_modules\jquery\src\css\var\getStyles.js" />
+    <Content Include="node_modules\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="node_modules\jquery\src\css\var\rmargin.js" />
+    <Content Include="node_modules\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="node_modules\jquery\src\css\var\swap.js" />
+    <Content Include="node_modules\jquery\src\data.js" />
+    <Content Include="node_modules\jquery\src\data\Data.js" />
+    <Content Include="node_modules\jquery\src\data\var\acceptData.js" />
+    <Content Include="node_modules\jquery\src\data\var\dataPriv.js" />
+    <Content Include="node_modules\jquery\src\data\var\dataUser.js" />
+    <Content Include="node_modules\jquery\src\deferred.js" />
+    <Content Include="node_modules\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="node_modules\jquery\src\deprecated.js" />
+    <Content Include="node_modules\jquery\src\dimensions.js" />
+    <Content Include="node_modules\jquery\src\effects.js" />
+    <Content Include="node_modules\jquery\src\effects\animatedSelector.js" />
+    <Content Include="node_modules\jquery\src\effects\Tween.js" />
+    <Content Include="node_modules\jquery\src\event.js" />
+    <Content Include="node_modules\jquery\src\event\ajax.js" />
+    <Content Include="node_modules\jquery\src\event\alias.js" />
+    <Content Include="node_modules\jquery\src\event\focusin.js" />
+    <Content Include="node_modules\jquery\src\event\support.js" />
+    <Content Include="node_modules\jquery\src\event\trigger.js" />
+    <Content Include="node_modules\jquery\src\exports\amd.js" />
+    <Content Include="node_modules\jquery\src\exports\global.js" />
+    <Content Include="node_modules\jquery\src\jquery.js" />
+    <Content Include="node_modules\jquery\src\manipulation.js" />
+    <Content Include="node_modules\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="node_modules\jquery\src\manipulation\getAll.js" />
+    <Content Include="node_modules\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="node_modules\jquery\src\manipulation\support.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="node_modules\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="node_modules\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="node_modules\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="node_modules\jquery\src\offset.js" />
+    <Content Include="node_modules\jquery\src\queue.js" />
+    <Content Include="node_modules\jquery\src\queue\delay.js" />
+    <Content Include="node_modules\jquery\src\selector-native.js" />
+    <Content Include="node_modules\jquery\src\selector-sizzle.js" />
+    <Content Include="node_modules\jquery\src\selector.js" />
+    <Content Include="node_modules\jquery\src\serialize.js" />
+    <Content Include="node_modules\jquery\src\traversing.js" />
+    <Content Include="node_modules\jquery\src\traversing\findFilter.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\dir.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="node_modules\jquery\src\traversing\var\siblings.js" />
+    <Content Include="node_modules\jquery\src\var\arr.js" />
+    <Content Include="node_modules\jquery\src\var\class2type.js" />
+    <Content Include="node_modules\jquery\src\var\concat.js" />
+    <Content Include="node_modules\jquery\src\var\document.js" />
+    <Content Include="node_modules\jquery\src\var\documentElement.js" />
+    <Content Include="node_modules\jquery\src\var\fnToString.js" />
+    <Content Include="node_modules\jquery\src\var\getProto.js" />
+    <Content Include="node_modules\jquery\src\var\hasOwn.js" />
+    <Content Include="node_modules\jquery\src\var\indexOf.js" />
+    <Content Include="node_modules\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="node_modules\jquery\src\var\pnum.js" />
+    <Content Include="node_modules\jquery\src\var\push.js" />
+    <Content Include="node_modules\jquery\src\var\rcssNum.js" />
+    <Content Include="node_modules\jquery\src\var\rnothtmlwhite.js" />
+    <Content Include="node_modules\jquery\src\var\slice.js" />
+    <Content Include="node_modules\jquery\src\var\support.js" />
+    <Content Include="node_modules\jquery\src\var\toString.js" />
+    <Content Include="node_modules\jquery\src\wrap.js" />
+    <Content Include="node_modules\media-typer\index.js" />
+    <Content Include="node_modules\merge-descriptors\index.js" />
+    <Content Include="node_modules\methods\index.js" />
+    <Content Include="node_modules\mime-db\index.js" />
+    <Content Include="node_modules\mime-types\index.js" />
+    <Content Include="node_modules\mime\build\build.js" />
+    <Content Include="node_modules\mime\build\test.js" />
+    <Content Include="node_modules\mime\cli.js" />
+    <Content Include="node_modules\mime\mime.js" />
+    <Content Include="node_modules\ms\index.js" />
+    <Content Include="node_modules\negotiator\index.js" />
+    <Content Include="node_modules\negotiator\lib\charset.js" />
+    <Content Include="node_modules\negotiator\lib\encoding.js" />
+    <Content Include="node_modules\negotiator\lib\language.js" />
+    <Content Include="node_modules\negotiator\lib\mediaType.js" />
+    <Content Include="node_modules\on-finished\index.js" />
+    <Content Include="node_modules\parseurl\index.js" />
+    <Content Include="node_modules\path-to-regexp\index.js" />
+    <Content Include="node_modules\proxy-addr\index.js" />
+    <Content Include="node_modules\qs\dist\qs.js" />
+    <Content Include="node_modules\qs\lib\index.js" />
+    <Content Include="node_modules\qs\lib\parse.js" />
+    <Content Include="node_modules\qs\lib\stringify.js" />
+    <Content Include="node_modules\qs\lib\utils.js" />
+    <Content Include="node_modules\qs\test\index.js" />
+    <Content Include="node_modules\qs\test\parse.js" />
+    <Content Include="node_modules\qs\test\stringify.js" />
+    <Content Include="node_modules\qs\test\utils.js" />
+    <Content Include="node_modules\q\benchmark\compare-with-callbacks.js" />
+    <Content Include="node_modules\q\benchmark\scenarios.js" />
+    <Content Include="node_modules\q\q.js" />
+    <Content Include="node_modules\q\queue.js" />
+    <Content Include="node_modules\range-parser\index.js" />
+    <Content Include="node_modules\requestify\index.js" />
+    <Content Include="node_modules\requestify\lib\cache-transporters\in-memory-transporter.js" />
+    <Content Include="node_modules\requestify\lib\cache-transporters\mongo-transporter.js" />
+    <Content Include="node_modules\requestify\lib\cache-transporters\redis-transporter.js" />
+    <Content Include="node_modules\requestify\lib\cache.js" />
+    <Content Include="node_modules\requestify\lib\interface-validator.js" />
+    <Content Include="node_modules\requestify\lib\logger-adapters\console-adapter.js" />
+    <Content Include="node_modules\requestify\lib\logger-adapters\winston-adapter.js" />
+    <Content Include="node_modules\requestify\lib\logger.js" />
+    <Content Include="node_modules\requestify\lib\request.js" />
+    <Content Include="node_modules\requestify\lib\requestify.js" />
+    <Content Include="node_modules\requestify\lib\response.js" />
+    <Content Include="node_modules\requestify\LICENSE.txt" />
+    <Content Include="node_modules\requestify\test\cache-spec.js" />
+    <Content Include="node_modules\requestify\test\cache-transporters\in-memory-transporter-spec.js" />
+    <Content Include="node_modules\requestify\test\cache-transporters\mongo-transporter-spec.js" />
+    <Content Include="node_modules\requestify\test\cache-transporters\redis-trasporter-spec.js" />
+    <Content Include="node_modules\requestify\test\interface-validator-spec.js" />
+    <Content Include="node_modules\requestify\test\logger-adapters\console-adapter-spec.js" />
+    <Content Include="node_modules\requestify\test\logger-adapters\winston-adapter-spec.js" />
+    <Content Include="node_modules\requestify\test\logger-spec.js" />
+    <Content Include="node_modules\requestify\test\request-spec.js" />
+    <Content Include="node_modules\requestify\test\requestify-spec.js" />
+    <Content Include="node_modules\requestify\test\response-spec.js" />
+    <Content Include="node_modules\require-all\index.js" />
+    <Content Include="node_modules\send\index.js" />
+    <Content Include="node_modules\send\node_modules\ms\index.js" />
+    <Content Include="node_modules\serve-static\index.js" />
+    <Content Include="node_modules\setprototypeof\index.js" />
+    <Content Include="node_modules\statuses\index.js" />
+    <Content Include="node_modules\type-is\index.js" />
+    <Content Include="node_modules\underscore\underscore-min.js" />
+    <Content Include="node_modules\underscore\underscore.js" />
+    <Content Include="node_modules\unpipe\index.js" />
+    <Content Include="node_modules\utils-merge\index.js" />
+    <Content Include="node_modules\vary\index.js" />
+    <Content Include="plugins\HPAMyFox\grammar.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\HPAMyFox\index.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\HPAMyFox\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\HPAYahooWeather\grammar.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\HPAYahooWeather\index.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\HPAYahooWeather\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)node_modules $(ProjectDir)$(OutDir)\node_modules\ /s /e /h /y /c /i</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,113 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root= "HPAYahooWeather" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="HPAYahooWeather" scope="public">
+    <example>la météo</example>
+    <example>quel temps fera-t'il demain à toulouse</example>
+    <example>quel temps fait-il aurjoudh'ui</example>
+
+    <tag>out.question=0; out.join1=""; out.day = "";out.join2="";out.location="";</tag>
+    <one-of>
+      <item>
+        <ruleref uri ="#Question" type="application/srgs+xml"/>
+        <tag>out.question=rules.latest();</tag>
+        <ruleref uri ="#Join1" type="application/srgs+xml"/>
+        <tag>out.join1=rules.latest();</tag>
+        <ruleref uri ="#Day" type="application/srgs+xml"/>
+        <tag>out.day=rules.latest();</tag>
+        <ruleref uri ="#Join2" type="application/srgs+xml"/>
+        <tag>out.join2=rules.latest();</tag>
+        <ruleref uri ="#Location" type="application/srgs+xml"/>
+        <tag>out.location=rules.latest();</tag>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="Question">
+    <one-of>
+      <item>
+        la météo <tag>out = 0; </tag>
+      </item>
+      <item>
+        météo <tag>out = 1; </tag>
+      </item>
+      <item>
+        quel temps fait-il <tag>out = 2; </tag>
+      </item>
+      <item>
+        quel temps fera-t'il <tag>out = 3; </tag>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="Join1">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          pour <tag>out = "pour"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+  <rule id="Day">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          aujourdh'ui <tag>out = ""; </tag>
+        </item>
+        <item>
+          demain <tag>out = "Demain"; </tag>
+        </item>
+        <item>
+          lundi <tag>out = "Mon_lundi"; </tag>
+        </item>
+        <item>
+          mardi <tag>out = "Tue_mardi"; </tag>
+        </item>
+        <item>
+          mercredi <tag>out = "Wed_mercredi"; </tag>
+        </item>
+        <item>
+          jeudi <tag>out = "Thi_jeudi"; </tag>
+        </item>
+        <item>
+          vendredi <tag>out = "Fri_vendredi"; </tag>
+        </item>
+        <item>
+          samedi <tag>out = "Sat_samedi"; </tag>
+        </item>
+        <item>
+          dimanche <tag>out = "Sun_dimanche"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+  <rule id="Join2">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          à <tag>out = "à"; </tag>
+        </item>
+        <item>
+          en <tag>out = "en"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+
+  <rule id="Location">
+    <item repeat="0-1">
+      <one-of>
+        <item>
+          toulouse <tag>out = "Toulouse,fr"; </tag>  
+        </item>
+        <item>
+          paris <tag>out = "Paris,fr"; </tag>
+        </item>
+        <item>
+          tlemcen <tag>out = "Tlemcen,dz"; </tag>
+        </item>
+      </one-of>
+    </item>
+  </rule>
+</grammar>
