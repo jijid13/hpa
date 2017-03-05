@@ -16,16 +16,16 @@ actionGet = function(req, res) {
         pleayScenar(res_data, function () {
             res.send(ret);
         });
-    } else if (res_data.hasOwnProperty("Temperature")) {
+    } else if (res_data.hasOwnProperty("temperature")) {
         getTemperature(res_data, function () {
             res.send(ret);
         });
-    }else if (res_data.hasOwnProperty("Alarme")) {
+    }else if (res_data.hasOwnProperty("alarme")) {
         setAlarme(res_data, function () {
             res.send(ret);
         });
     }else {
-        res.send("commande inconnue !");
+        res.send(JSON.stringify({ status: "error", answer: "commande inconnue !" }));
     }
 }
 
@@ -91,7 +91,8 @@ var getTemperature = function (semantics, callback) {
                 for (var pos in rooms) {
                     ret += rooms[pos].split(',')[0] + " est " + temperatures.payload.items[rooms[pos].split(',')[1]].lastTemperature + " degrés et de ";
                 }
-                ret = ret.substring(0, ret.length - 6);
+
+                ret = JSON.stringify({ status: "ok", answer: ret.substring(0, ret.length - 6) });
                 callback();// <=== Call callback
             })
             .fail(function (response) {
@@ -118,7 +119,7 @@ var setAlarme = function (semantics, callback) {
             var token = response.getBody();
             requestify.get(jsonContent.mf_setSecurityUrl
                 .replace('%site', jsonContent.site_id)
-                .replace('%level', semantics.Alarme)
+                .replace('%level', semantics.alarme)
                 .replace('%token', token.access_token), {
                 })
             .then(function (response) {

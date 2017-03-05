@@ -9,10 +9,11 @@
     "mf_setSecurityUrl":"https://api.myfox.me:443/v2/site/%site/security/set/%level?access_token=%token",
     "mf_ScenarioUrl":"https://api.myfox.me/v2/site/%site/scenario/%scenario/play?access_token=%token",
     "mf_TemperatureUrl":"https://api.myfox.me/v2/site/%site/device/data/temperature/items?access_token=%token",
-    "client_id":"",
-    "client_secret":"",
-    "username":"",
-    "password":"",
-    "site_id":"",
-    "temperature_rooms":"Salon,0|Cuisine,1"
+    "client_id":"f99055beba8b242307eec06b4296ba4d",
+    "client_secret":"yWxWIIY931pQGvsUB9fS7RIjMbJMCXv8",
+    "username":"jijid13@gmail.com",
+    "password":"31SopIsaim2016",
+    "site_id":"20517",
+    "temperature_rooms":"Salon,0|Cuisine,1",
+    "mirror_url":"http://192.168.0.35/"
 }
