@@ -1,0 +1,19 @@
+{
+    "Title":"MyFox",
+    "Module_url":"/hpamyfox",
+    "GroupName":"Domotique",
+    "BackgroundColor1":"#48dbd5",
+    "BackgroundColor2":"#2d8884",
+    "mf_urlToken":"https://api.myfox.me/oauth2/token",
+    "mf_getSecurityUrl":"https://api.myfox.me:443/v2/site/%site/security/get?access_token=%token",
+    "mf_setSecurityUrl":"https://api.myfox.me:443/v2/site/%site/security/set/%level?access_token=%token",
+    "mf_ScenarioUrl":"https://api.myfox.me/v2/site/%site/scenario/%scenario/play?access_token=%token",
+    "mf_TemperatureUrl":"https://api.myfox.me/v2/site/%site/device/data/temperature/items?access_token=%token",
+    "client_id":"",
+    "client_secret":"",
+    "username":"",
+    "password":"",
+    "site_id":"",
+    "temperature_rooms":"Salon,0|Cuisine,1",
+    "mirror_url":"http://192.168.0.35/"
+}
